@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  name: PakAzureComPool 
 
 variables:
   solution: '**/*.sln'
@@ -19,7 +19,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourceDirectory)'
+    SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**\*.dacpac'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
